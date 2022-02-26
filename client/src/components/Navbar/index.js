@@ -1,4 +1,4 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IconContext } from 'react-icons/lib';
 import { FaBars } from 'react-icons/fa';
 import {
@@ -15,23 +15,24 @@ import {
 } from './NavbarElements';
 
 const Navbar = ({ toggleBar }) => {
-  // const [scroll, setScroll] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
-  // const scrollChange = () => {
-  //   if (window.scrollY >= 80) {
-  //     setScroll(true);
-  //   } else {
-  //     setScroll(false);
-  //   }
-  // };
+  const scrollChange = () => {
+    if (window.scrollY >= 80) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", scrollChange);
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", scrollChange);
+  }, []);
+
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <Nav>
+        <Nav scroll={scroll}>
           <NavContainer>
             <Logo to="/">Logo</Logo>
             <MobileIcon onClick={toggleBar}>
