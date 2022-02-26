@@ -25,7 +25,6 @@ const Book = () => {
 
   return (
     <>
-      <div>in booking component</div>
       { bookingPageView ? <MainContainer>
         <DataGridWrapper>
           <DataGrid

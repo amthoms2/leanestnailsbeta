@@ -6,11 +6,13 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
 import { MainContainer} from './bookingElements';
 import { services } from '../../data';
+import Form from './Form'
 
 
 const Calendar = ({selections, handleClick}) => {
 
   const [value, setValue] = useState(new Date());
+  const [formPageView, setFormPageView] = useState(false);
 
   const myDates = ['Mon Feb 28 2022', 'Tue Mar 1 2022', 'Wed Mar 2 2022', 'Thurs Mar 3 2022', 'Fri Mar 4 2022', 'Sat Mar 5 2022'];
 
@@ -22,11 +24,19 @@ const Calendar = ({selections, handleClick}) => {
     return selections.includes(service.id)
   })
 
+  const serviceName = selectedServices.map(service => {
+    return service.name
+  })
+
+  const handleForm = () => {
+    setFormPageView(!formPageView)
+  }
+
   return (
+    <>
+    {formPageView ? <Form services={selections} handleClick={handleClick} date={value} servicesList={serviceName}/> :
     <div>
-      <button onClick={handleClick}>Go back</button>
-      {/* {console.log('services', services)}
-      {console.log('selections', selections)} */}
+    <button onClick={handleClick}>Go back</button>
     <LocalizationProvider dateAdapter={AdapterDateFns}>
     <MainContainer>
     <StaticDatePicker
@@ -41,14 +51,13 @@ const Calendar = ({selections, handleClick}) => {
       />
       </MainContainer>
   </LocalizationProvider>
-  <button>Next</button>
+  <button onClick={handleForm}>Next</button>
   <div>
-    {selectedServices.map(service => {
-      return service.name
-    })}
-  {console.log('value', value)}
+    {serviceName}
   </div>
-    </div>
+  </div>
+  }
+    </>
   )
 }
 
