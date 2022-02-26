@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { Link as LinkRouter } from 'react-router-dom'
-import { Link as LinkScroll} from 'react-scroll'
-import { FaTimes } from 'react-icons/fa'
+import styled from 'styled-components';
+import { Link as LinkRouter } from 'react-router-dom';
+import { Link as LinkScroll } from 'react-scroll';
+import { FaTimes } from 'react-icons/fa';
 
 export const TopbarContainer = styled.aside`
   width: 100%;
@@ -17,26 +17,25 @@ export const TopbarContainer = styled.aside`
   opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
   top: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
   /* //top: 0 and uncomment two above to check if sidebar works */
-`
+`;
 
 export const ShutIcon = styled(FaTimes)`
   color: #fff;
-`
+`;
 
 export const Icon = styled.div`
-position: absolute;
-top: 1.2rem;
-right: 1.5rem;
-background: transparent;
-font-size: 2rem;
-cursor: pointer;
-outline: none;
-`
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  outline: none;
+`;
 
 export const TopbarWrapper = styled.div`
   color: #fff;
-
-`
+`;
 
 export const TopbarMenu = styled.ul`
   display: grid;
@@ -44,10 +43,10 @@ export const TopbarMenu = styled.ul`
   grid-template-rows: repeat(6, 80px);
   text-align: center;
 
-  @media screen and (max-width: 480px){
+  @media screen and (max-width: 480px) {
     grid-template-rows: repeat(6, 60px);
   }
-`
+`;
 
 export const TopbarLink = styled(LinkScroll)`
   display: flex;
@@ -65,7 +64,7 @@ export const TopbarLink = styled(LinkScroll)`
     color: #01bf71;
     transition: 0.2s ease-in-out;
   }
-`
+`;
 
 export const TopbarLinkRoute = styled(LinkRouter)`
   display: flex;
@@ -83,12 +82,12 @@ export const TopbarLinkRoute = styled(LinkRouter)`
     color: #01bf71;
     transition: 0.2s ease-in-out;
   }
-`
+`;
 
 export const TopBtnWrap = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 export const TopbarRoute = styled(LinkRouter)`
   border-radius: 50px;
@@ -108,4 +107,4 @@ export const TopbarRoute = styled(LinkRouter)`
     background: #fff;
     color: #010606;
   }
-`
+`;

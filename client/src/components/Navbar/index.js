@@ -11,10 +11,23 @@ import {
   NavLinks,
   NavLink,
   NavBtn,
-  NavBtnLink
+  NavBtnLink,
 } from './NavbarElements';
 
-const Navbar = ({toggleBar}) => {
+const Navbar = ({ toggleBar }) => {
+  // const [scroll, setScroll] = useState(false);
+
+  // const scrollChange = () => {
+  //   if (window.scrollY >= 80) {
+  //     setScroll(true);
+  //   } else {
+  //     setScroll(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", scrollChange);
+  // }, []);
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -70,7 +83,7 @@ const Navbar = ({toggleBar}) => {
             </NavMenu>
 
             <NavBtn>
-            <NavBtnLink to='/signin'> Sign Out</NavBtnLink>
+              <NavBtnLink to="/signin"> Sign Out</NavBtnLink>
             </NavBtn>
           </NavContainer>
         </Nav>
