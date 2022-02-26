@@ -1,9 +1,55 @@
-// import { DataGrid } from "@material-ui/data-grid";
+import { useState } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import { services } from '../../data';
+import { MainContainer, DataGridWrapper } from './bookingElements';
+import Calender from './Calendar';
 
 const Book = () => {
-  return(
-    <div>in booking component</div>
-  )
-}
+  const [selectionModel, setSelectionModel] = useState([]);
+  const [bookingPageView, setBookingPageView] = useState(true);
 
-export default Book
+  const columns = [
+    {
+      field: 'services',
+      headerName: 'Select Services',
+      width: 230,
+      renderCell: (params) => {
+        return <>{params.row.name}</>;
+      },
+    },
+  ];
+
+  const handleClick = (evt) => {
+    evt.preventDefault();
+    setBookingPageView(!bookingPageView)
+  }
+
+  return (
+    <>
+      <div>in booking component</div>
+      { bookingPageView ? <MainContainer>
+        <DataGridWrapper>
+          <DataGrid
+            rows={services}
+            columns={columns}
+            getRowId={(row) => row.id}
+            rowsPerPageOptions={[10]}
+            checkboxSelection
+            hideFooterPagination
+            disableSelectionOnClick
+            onSelectionModelChange={(newSelectionModel) => {
+              setSelectionModel(newSelectionModel);
+            }}
+            selectionModel={selectionModel}
+          />
+        </DataGridWrapper>
+        <button onClick={handleClick}>Click</button>
+      </MainContainer> :
+        <Calender selections={selectionModel}/>
+      }
+
+    </>
+  );
+};
+
+export default Book;
