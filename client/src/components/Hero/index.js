@@ -39,7 +39,7 @@ const Hero = () => {
           <MainButtonWrapper>
             <Button
               to="book"
-              onMouseHover={onHover}
+              onMouseEnter={onHover}
               onMouseLeave={onHover}
               primary="true"
               dark="true"

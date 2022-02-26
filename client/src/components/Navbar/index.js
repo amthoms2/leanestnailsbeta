@@ -43,9 +43,9 @@ const Navbar = ({ toggleBar }) => {
               <NavItem>
                 <NavScroll
                   to="about"
-                  smooth={true}
+                  smooth={'true'}
                   duration={500}
-                  spy={true}
+                  spy={'true'}
                   exact="true"
                   offset={-80}
                 >
@@ -56,9 +56,9 @@ const Navbar = ({ toggleBar }) => {
               <NavItem>
                 <NavScroll
                   to="services"
-                  smooth={true}
+                  smooth={'true'}
                   duration={500}
-                  spy={true}
+                  spy={'true'}
                   exact="true"
                   offset={-80}
                 >
@@ -69,9 +69,9 @@ const Navbar = ({ toggleBar }) => {
               <NavItem>
                 <NavScroll
                   to="gallery"
-                  smooth={true}
+                  smooth={'true'}
                   duration={500}
-                  spy={true}
+                  spy={'true'}
                   exact="true"
                   offset={-80}
                 >

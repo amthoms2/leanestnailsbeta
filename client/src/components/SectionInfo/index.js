@@ -43,9 +43,9 @@ const SectionInfo = ({
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <ButtonWrapper>
                   <Button to={`${id}`}
-                  smooth={true}
+                  smooth={'true'}
                   duration={500}
-                  spy={true}
+                  spy={'true'}
                   exact='true'
                   offset={-80}
                   primary={primary ? 1 : 0}

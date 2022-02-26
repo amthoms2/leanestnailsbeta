@@ -19,8 +19,7 @@ const Book = () => {
     },
   ];
 
-  const handleClick = (evt) => {
-    evt.preventDefault();
+  const handleClick = () => {
     setBookingPageView(!bookingPageView)
   }
 
@@ -46,7 +45,7 @@ const Book = () => {
         </DataGridWrapper>
         <button onClick={handleClick}>Click</button>
       </MainContainer> :
-        <Calender selections={selectionModel}/>
+        <Calender selections={selectionModel} handleClick={handleClick}/>
       }
 
     </>
