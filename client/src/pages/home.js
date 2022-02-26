@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import TopBar from '../components/Topbar'
+import TopBar from '../components/Navbar/TopBar'
 import Navbar from '../components/Navbar'
 // import MainPage from '../components/MainPage'
 // import SectionInfo from '../components/SectionInfo'
@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <>
-    {/* <TopBar isOpen={isOpen} toggleBar={toggleBar} /> */}
+    <TopBar isOpen={isOpen} toggleBar={toggleBar} />
     <Navbar toggleBar={toggleBar} />
     {/* <MainPage /> */}
     {/* <SectionInfo {...homeObj1}/> */}

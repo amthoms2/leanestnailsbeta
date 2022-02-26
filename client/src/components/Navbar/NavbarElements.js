@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link as LinkRouter } from 'react-router-dom';
 import { Link as LinkScroll } from 'react-scroll';
+import { FaTimes } from 'react-icons/fa';
 
 export const Nav = styled.nav`
   background: black;
@@ -30,7 +31,7 @@ export const NavContainer = styled.div`
   max-width: 1100px;
 `;
 
-export const NavbarLogo = styled(LinkRouter)`
+export const Logo = styled(LinkRouter)`
   color: #fff;
   justify-self: flex-start;
   cursor: pointer;
@@ -68,6 +69,7 @@ export const NavMenu = styled.ul`
     display: none;
   }
 `;
+//^the navbar will disappear at this width and only sidebar will be seen
 
 export const NavItem = styled.li`
   height: 80px;
