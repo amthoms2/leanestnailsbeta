@@ -38,6 +38,7 @@ const Book = () => {
             hideFooterPagination
             disableSelectionOnClick
             onSelectionModelChange={(newSelectionModel) => {
+              console.log(JSON.stringify(newSelectionModel))
               setSelectionModel(newSelectionModel);
             }}
             selectionModel={selectionModel}

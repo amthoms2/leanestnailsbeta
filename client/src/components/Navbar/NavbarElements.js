@@ -88,7 +88,7 @@ export const NavLink = styled(LinkRouter)`
   }
 `;
 
-export const NavLinks = styled(LinkScroll)`
+export const NavScroll = styled(LinkScroll)`
   color: #fff;
   display: flex;
   align-items: center;

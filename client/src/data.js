@@ -1,7 +1,7 @@
 export const services = [
   {
     id: 1,
-    name: 'Manicure'
+    name: 'Manicure 1'
   },
   {
     id: 2,
@@ -9,7 +9,7 @@ export const services = [
   },
   {
     id: 3,
-    name: 'Manicure 2'
+    name: 'Manicure 3'
   },
   {
     id: 4,

@@ -5,7 +5,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
 import { MainContainer} from './bookingElements';
-// import { services } from '../../data';
+import { services } from '../../data';
 
 
 const Calendar = ({selections}) => {
@@ -26,11 +26,15 @@ const Calendar = ({selections}) => {
   //   }
   // }
 
+  const selectedServices = services.filter((service) => {
+    return selections.includes(service.id)
+  })
+
   return (
     <div>
       Calendar here
-      {/* {console.log('services', services)}
-      {console.log('selections', selections)} */}
+      {console.log('services', services)}
+      {console.log('selections', selections)}
     <LocalizationProvider dateAdapter={AdapterDateFns}>
     <MainContainer>
     <StaticDatePicker
@@ -47,7 +51,9 @@ const Calendar = ({selections}) => {
   </LocalizationProvider>
   <button>Submit</button>
   <div>
-    {/* {displayServices(selections)} */}
+    {selectedServices.map(service => {
+      return service.name
+    })}
   </div>
     </div>
   )

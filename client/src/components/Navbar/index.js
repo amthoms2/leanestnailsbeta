@@ -8,7 +8,7 @@ import {
   MobileIcon,
   NavMenu,
   NavItem,
-  NavLinks,
+  NavScroll,
   NavLink,
   NavBtn,
   NavBtnLink,
@@ -38,10 +38,11 @@ const Navbar = ({ toggleBar }) => {
             <MobileIcon onClick={toggleBar}>
               <FaBars />
             </MobileIcon>
+
             <NavMenu>
               <NavItem>
-                <NavLinks
-                  to="/about"
+                <NavScroll
+                  to="about"
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -49,12 +50,12 @@ const Navbar = ({ toggleBar }) => {
                   offset={-80}
                 >
                   About
-                </NavLinks>
+                </NavScroll>
               </NavItem>
 
               <NavItem>
-                <NavLinks
-                  to="/services"
+                <NavScroll
+                  to="services"
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -62,12 +63,12 @@ const Navbar = ({ toggleBar }) => {
                   offset={-80}
                 >
                   Services
-                </NavLinks>
+                </NavScroll>
               </NavItem>
 
               <NavItem>
-                <NavLinks
-                  to="/gallery"
+                <NavScroll
+                  to="gallery"
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -75,7 +76,7 @@ const Navbar = ({ toggleBar }) => {
                   offset={-80}
                 >
                   Gallery
-                </NavLinks>
+                </NavScroll>
               </NavItem>
 
               <NavItem>
