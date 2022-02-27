@@ -24,7 +24,10 @@ const Message = ({ status = 'success', text }) => {
 };
 
 const Field = ({ field, onChange }) => {
-  const { label, ...attributes } = field;
+
+  const { label, ...attributes } = field
+  // console.log('updated field', field)
+  // console.log('type', attributes.type)
   //attributes takes in remaining object props and vals
   return (
     <>
@@ -32,9 +35,9 @@ const Field = ({ field, onChange }) => {
       {(() => {
         switch (attributes.type) {
           case 'textarea':
-            return <TextArea onChange={onChange} {...attributes} />;
+            return <TextArea name={label} onChange={onChange} {...attributes} />
           default:
-            return <Input onChange={onChange} {...attributes} />;
+            return <Input name={label} onChange={onChange} {...attributes} />
         }
       })()}
     </>
@@ -45,16 +48,15 @@ const Field = ({ field, onChange }) => {
 const Form = ({ form, onSubmit }) => {
   // eslint-disable-next-line
   const [fields, setFields] = useState(
-    form.fields.map((field) => ({
+    form.fields.map(field => ({
       ...field,
       name: field.name || field.label,
-      value: '',
+      value: ''
     }))
-  );
-
+  )
 
   const handleChange = (evt) => {
-    console.log(evt.target.getAttribute('name'))
+    console.log('evt', evt)
     const name = evt.target.getAttribute('name');
     console.log('name', name)
     const newFields = fields.map(field => {
@@ -67,9 +69,7 @@ const Form = ({ form, onSubmit }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log('wtf', fields)
     onSubmit(fields)
-
   }
 
   return (
