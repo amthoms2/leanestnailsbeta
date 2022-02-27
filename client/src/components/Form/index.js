@@ -56,9 +56,7 @@ const Form = ({ form, onSubmit }) => {
   )
 
   const handleChange = (evt) => {
-    console.log('evt', evt)
     const name = evt.target.getAttribute('name');
-    console.log('name', name)
     const newFields = fields.map(field => {
       return field.name === name
         ? { ...field, value: evt.target.value }
@@ -69,7 +67,10 @@ const Form = ({ form, onSubmit }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onSubmit(fields)
+    const formData = fields.reduce((fields, field) => {
+      return { ...fields, [field.name]: field.value }
+    }, {})
+    onSubmit(formData);
   }
 
   return (
