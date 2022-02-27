@@ -61,19 +61,18 @@ export const MessageContainer = styled.div`
 
 export const FormBottom = styled.div`
   margin-top: 25px;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
 `;
 
 export const Button = styled.button`
-border-radius: 50px;
-  background: ${({primary}) => (primary ? '#43e4db' : '#010606')};
+  border-radius: 50px;
+  background: ${({ primary }) => (primary ? '#43e4db' : '#010606')};
   white-space: nowrap;
-  padding: ${({big}) => (big ? '14px 48px' : '12px 30px')};
-  color: ${({dark}) => (dark ? '#010606' : '#fff')};
-  font-size: ${({fontBig}) => (fontBig ? '20px' : '16px')};
+  padding: ${({ big }) => (big ? '14px 48px' : '12px 30px')};
+  color: ${({ dark }) => (dark ? '#010606' : '#fff')};
+  font-size: ${({ fontBig }) => (fontBig ? '20px' : '16px')};
   outline: none;
   border: none;
   cursor: pointer;
@@ -82,7 +81,11 @@ border-radius: 50px;
   align-items: center;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-`
+
+  &:disabled {
+    background-color: #777;
+  }
+`;
 
 // export const FormButton = styled.button`
 //    display: inline-block;
