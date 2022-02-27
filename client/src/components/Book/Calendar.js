@@ -6,8 +6,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
 import { MainContainer} from './bookingElements';
 import { services } from '../../data';
-import Form from './Form'
-
+import BookingForm from "./BookingForm"
 
 const Calendar = ({selections, handleClick}) => {
 
@@ -34,7 +33,7 @@ const Calendar = ({selections, handleClick}) => {
 
   return (
     <>
-    {formPageView ? <Form services={selections} handleClick={handleClick} date={value} servicesList={serviceName}/> :
+    {formPageView ? <BookingForm handleClick={handleClick} date={value} servicesList={serviceName}/> :
     <div>
     <button onClick={handleClick}>Go back</button>
     <LocalizationProvider dateAdapter={AdapterDateFns}>
