@@ -1,31 +1,80 @@
 import { useState } from 'react';
+import {
+  FormContainer,
+  Input,
+  TextArea,
+  MessageContainer,
+  SpinnerImg,
+  FormBottom,
+  Button
+  // FormButton,
+} from './FormElements';
 
-const Form = ({ form }) => {
+// eslint-disable-next-line
+const Spinner = ({ loading }) => {
+  return loading ? (
+    <SpinnerImg alt="spinner gif" src="https://i.imgur.com/01yMDgZ.gif" />
+  ) : null;
+};
+// eslint-disable-next-line
+const Message = ({ status = 'success', text }) => {
+  return status && status !== 'loading' ? (
+    <MessageContainer status={status}>{text}</MessageContainer>
+  ) : null;
+};
 
-  const [fields, setFields] = useState([]);
+const Field = ({ field, onChange }) => {
+  const { label, ...attributes } = field;
+  //attributes takes in remaining object props and vals
+  return (
+    <>
+      <label>{label}</label>
+      {(() => {
+        switch (attributes.type) {
+          case 'textarea':
+            return <TextArea onChange={onChange} {...attributes} />;
+          default:
+            return <Input onChange={onChange} {...attributes} />;
+        }
+      })()}
+    </>
+  );
+};
 
-  const Field = ({ field, onChange }) => {
-    const { label, ...attributes } = field;
-    //attributes takes in remaining object props and vals
-    return (
-      <>
-        <label>{label}</label>
-        {(() => {
-          switch (attributes.type) {
-            case 'textarea':
-              return <textarea onChange={onChange} {...attributes} />
-            default:
-              return <input onChange={onChange} {...attributes} />
-          }
-        })()}
-      </>
-    )
+
+const Form = ({ form, onSubmit }) => {
+  // eslint-disable-next-line
+  const [fields, setFields] = useState(
+    form.fields.map((field) => ({
+      ...field,
+      name: field.name || field.label,
+      value: '',
+    }))
+  );
+
+
+  const handleChange = (evt) => {
+    console.log(evt.target.getAttribute('name'))
+    const name = evt.target.getAttribute('name');
+    console.log('name', name)
+    const newFields = fields.map(field => {
+      return field.name === name
+        ? { ...field, value: evt.target.value }
+        : field
+    });
+    setFields(newFields);
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log('wtf', fields)
+    onSubmit(fields)
+
   }
 
   return (
     <>
-      <form>
-        {console.log('form', form)}
+      <FormContainer onSubmit={handleSubmit}>
         {/* {form.fields.map((field) => {
           return field.type === 'textarea' ? (
             <>
@@ -39,10 +88,22 @@ const Form = ({ form }) => {
             </>
           );
         })} */}
-        {form.fields.map(field => {
-          return <Field field={field} />
+        {form.fields.map((field) => {
+          return <Field field={field} onChange={handleChange} />;
         })}
-      </form>
+
+        <FormBottom>
+          {/* <FormButton type="submit">
+            {form.config.buttonText || 'Submit'}
+          </FormButton> */}
+          <Button type="submit" primary="true" dark="true" hover="false">
+            {form.config.buttonText || 'Submit'}
+          </Button>
+
+          {/* <Spinner loading={status === 'loading' && spinner}/> */}
+        </FormBottom>
+        {/* <Message status={status} text={messages[status]} /> */}
+      </FormContainer>
     </>
   );
 };

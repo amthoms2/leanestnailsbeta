@@ -8,6 +8,8 @@ import { MainContainer} from './bookingElements';
 import { services } from '../../data';
 import BookingForm from "./BookingForm"
 
+//FIX ISSUE FOR DISABLED DAYS!!
+
 const Calendar = ({selections, handleClick}) => {
 
   const [value, setValue] = useState(new Date());
