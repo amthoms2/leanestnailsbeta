@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
-import { MainContainer} from './bookingElements';
+// import { MainContainer} from './bookingElements';
 import { services } from '../../data';
 import BookingForm from "./BookingForm"
 
@@ -37,9 +37,9 @@ const Calendar = ({selections, handleClick}) => {
     <>
     {formPageView ? <BookingForm handleClick={handleClick} date={value} servicesList={serviceName}/> :
     <div>
-    <button onClick={handleClick}>Go back</button>
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-    <MainContainer>
+    {/* <MainContainer> */}
+    <button onClick={handleClick}>Go back</button>
     <StaticDatePicker
         orientation="landscape"
         openTo="day"
@@ -50,7 +50,7 @@ const Calendar = ({selections, handleClick}) => {
         }}
         renderInput={(params) => <TextField {...params} />}
       />
-      </MainContainer>
+      {/* </MainContainer> */}
   </LocalizationProvider>
   <button onClick={handleForm}>Next</button>
   <div>

@@ -1,10 +1,12 @@
 import Book from '../components/Book'
+import {MainContainer} from '../components/Book/bookingElements'
 
 const Booking = () => {
   return (
     <>
-      <h1>Booking</h1>
+    <MainContainer>
       <Book />
+      </MainContainer>
     </>
   );
 };

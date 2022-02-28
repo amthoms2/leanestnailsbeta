@@ -5,12 +5,14 @@ import config from "../Form/config"
 const BookingForm = ({handleClick, date, servicesList}) => {
   const [status, setStatus] = useState('')
   console.log('date', date)
-  console.log('date', servicesList)
+  console.log('services', servicesList)
 
   const handleSubmit = form => {
+    console.log('Loading rerender')
     setStatus('loading')
 
     setTimeout(() => {
+      console.log('First sucess re-render')
       setStatus('success')
     }, 3000)
   }

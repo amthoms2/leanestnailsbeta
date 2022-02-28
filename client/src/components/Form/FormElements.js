@@ -1,6 +1,17 @@
 import styled from 'styled-components';
+import img from '../../media/lighting.jpg'
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.div`
+  background-image: url(${img});
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+`
+
+export const Forms = styled.form`
   width: 375px;
   margin-left: 5px;
 `;
