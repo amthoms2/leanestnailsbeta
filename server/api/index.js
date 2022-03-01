@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const path = require('path')
 const port = 8080
 dotenv.config();
+const cors = require("cors");
 const bookingRoute = require('./routes/booking')
 
 mongoose
@@ -14,6 +15,7 @@ mongoose
   .then(() => console.log('DB Connection Successful'))
   .catch((err) => console.log(err));
 
+  app.use(cors())
   app.use(express.urlencoded({ extended: true }))
   app.use(express.json()) // format of sending data via key: value pairs
   app.use(express.static(path.join(__dirname, '/public')))
