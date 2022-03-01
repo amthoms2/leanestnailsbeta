@@ -1,18 +1,24 @@
 import { useState } from 'react'
 import Form from '../Form'
-import config from "../Form/config"
+import config from "./config"
+import axios from 'axios';
 
 const BookingForm = ({handleClick, date, servicesList}) => {
   const [status, setStatus] = useState('')
-  console.log('date', date)
-  console.log('services', servicesList)
+  // console.log('date', date)
+  // console.log('services', servicesList)
 
-  const handleSubmit = form => {
-    console.log('Loading rerender')
+  const handleSubmit = async (form) => {
     setStatus('loading')
-
+    form = {...form, Date: date.toString()}
+    console.log('form',form)
+    try{
+      const res = await axios.post("http://localhost:8080/api/booking/book", form);
+      console.log("res in front", res.data);
+    }catch(err){
+      console.log(err)
+    }
     setTimeout(() => {
-      console.log('First sucess re-render')
       setStatus('success')
     }, 3000)
   }

@@ -1,3 +1,4 @@
+
 const config = {
   config: {
     messages: {
@@ -15,21 +16,22 @@ const config = {
       required: true
     },
     {
-      label: 'Location',
-      placeholder: 'New York, NY',
-      required: true
-    },
-    {
       label: 'Email',
       type: 'email',
       placeholder: 'xyz@gmail.com',
       required: true
     },
     {
-      label: 'Message',
+      label: 'Number',
+      // type: 'email',
+      placeholder: '555-555-5555',
+      required: true
+    },
+    {
+      label: 'Comments',
       type: 'textarea',
       placeholder: 'Enter your message...',
-      required: true
+      required: false
     }
   ]
 }

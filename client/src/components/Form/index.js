@@ -25,8 +25,6 @@ const Message = ({ status, text }) => {
 
 const Field = ({ field, onChange }) => {
   const { label, ...attributes } = field;
-  console.log(`${label}`);
-  if (label === 'Message') console.log(`=============`);
 
   //attributes takes in remaining object props and vals
   return (
