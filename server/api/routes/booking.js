@@ -41,19 +41,35 @@ router.delete("/:id", async (req, res) => {
 
 //USER UPDATES BOOKING
 router.put("/:id", async (req, res) => {
-  console.log('req', req.body)
-  const userId = mongoose.Types.ObjectId(req.params.id);
   try {
-    const updatedBooking = await Booking.updateOne(
-      { _id: userId},
-      { $set: req.body},
+    const updatedBooking = await Booking.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
       { new: true }
     );
+    updatedBooking.save()
     console.log("updatedBooking", updatedBooking);
     res.status(200).json(updatedBooking);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+// router.put("/:id", async (req, res) => {
+//   console.log('req', req.body)
+//   const userId = mongoose.Types.ObjectId(req.params.id);
+//   try {
+//     const updatedBooking = await Booking.updateOne(
+//       { _id: userId},
+//       { $set: req.body},
+//       { new: true }
+//     );
+//     console.log("updatedBooking", updatedBooking);
+//     res.status(200).json(updatedBooking);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
