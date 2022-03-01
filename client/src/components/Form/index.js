@@ -1,6 +1,7 @@
 import { useState, useEffect, memo, useCallback, useRef } from 'react';
 import {
   // FormContainer,
+  MainContainer,
   Forms,
   Input,
   TextArea,
@@ -73,10 +74,9 @@ const Form = ({ form, onSubmit, status }) => {
 
   useEffect(() => {
     if (status === 'success') {
-      console.log('expected re-render');
-      setFields(fields.map((field) => ({ ...field, value: '' })));
+      setFields(fields.map(field => ({ ...field, value: '' })))
     }
-  }, [status]);
+  }, [status])
 
   // adding useCallback allows for this to re-render ONLY if the dependency changes
   const handleChange = useCallback((evt) => {
@@ -99,7 +99,7 @@ const Form = ({ form, onSubmit, status }) => {
   return (
     <>
       {/* <FormContainer> */}
-      {/* <MainContainer> */}
+      <MainContainer>
       <Forms onSubmit={handleSubmit}>
         {form.fields.map((field) => {
           return (
@@ -124,8 +124,8 @@ const Form = ({ form, onSubmit, status }) => {
         </FormBottom>
         <Message status={status} text={form.config.messages[status]} />
       </Forms>
+      </MainContainer>
       {/* </FormContainer> */}
-      {/* </MainContainer> */}
     </>
   );
 };

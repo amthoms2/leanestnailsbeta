@@ -1,12 +1,16 @@
-import Book from '../components/Book'
-import {MainContainer} from '../components/Book/bookingElements'
+import Book from '../components/Book';
+import { MainContainer } from '../components/Book/bookingElements';
+// import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Booking = () => {
   return (
     <>
-    <MainContainer>
-      <Book />
+      {/* <Navbar /> */}
+      <MainContainer>
+        <Book />
       </MainContainer>
+      <Footer />
     </>
   );
 };

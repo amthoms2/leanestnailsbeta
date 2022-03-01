@@ -4,13 +4,16 @@ import config from "./config"
 import axios from 'axios';
 
 const BookingForm = ({handleClick, date, servicesList}) => {
-  const [status, setStatus] = useState('')
-  // console.log('date', date)
+  const [status, setStatus] = useState('');
+  // let newDate = JSON.stringify(date);
+  // newDate = newDate.slice(1,11)
+  // console.log('new date', newDate)
+  console.log('date', date)
   // console.log('services', servicesList)
 
   const handleSubmit = async (form) => {
     setStatus('loading')
-    form = {...form, Date: date.toString()}
+    form = {...form, Date: date}
     console.log('form',form)
     try{
       const res = await axios.post("http://localhost:8080/api/booking/book", form);
