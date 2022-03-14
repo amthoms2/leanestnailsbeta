@@ -5,11 +5,7 @@ import axios from 'axios';
 
 const BookingForm = ({handleClick, date, servicesList}) => {
   const [status, setStatus] = useState('');
-  // let newDate = JSON.stringify(date);
-  // newDate = newDate.slice(1,11)
-  // console.log('new date', newDate)
   console.log('date', date)
-  // console.log('services', servicesList)
 
   const handleSubmit = async (form) => {
     setStatus('loading')

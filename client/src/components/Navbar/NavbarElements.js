@@ -35,7 +35,8 @@ export const Logo = styled(LinkRouter)`
   justify-self: flex-start;
   cursor: pointer;
   font-size: 1.5rem;
-  display: flex;
+  display: ${({ display }) => (display === 'inherit' ? 'inherit' : 'flex')};
+  /* display: flex; */
   align-items: center;
   margin-left: 24px;
   font-weight: bold;

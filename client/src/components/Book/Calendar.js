@@ -15,7 +15,7 @@ const Calendar = ({selections, handleClick}) => {
   const [value, setValue] = useState(new Date());
   const [formPageView, setFormPageView] = useState(false);
 
-  const myDates = ['Mon Feb 28 2022', 'Tue Mar 1 2022', 'Wed Mar 2 2022', 'Thurs Mar 3 2022', 'Fri Mar 4 2022', 'Sat Mar 5 2022'];
+  const myDates = ['Mon Mar 14 2022', 'Tue Mar 15 2022', 'Wed Mar 16 2022'];
 
   const disableDates = (date) => {
     return !myDates.map((myDate) => new Date(myDate).getTime()).includes(date.getTime());
@@ -45,6 +45,7 @@ const Calendar = ({selections, handleClick}) => {
         openTo="day"
         value={value}
         shouldDisableDate={disableDates}
+        disablePast
         onChange={(newValue) => {
           setValue(newValue);
         }}
