@@ -7,6 +7,9 @@ import StaticDatePicker from '@mui/lab/StaticDatePicker';
 import { MainContainer} from './bookingElements';
 import { services } from '../../data';
 import BookingForm from './BookingForm';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/styles';
 
 //FIX ISSUE FOR DISABLED DAYS!!
 
@@ -14,7 +17,7 @@ const Calendar = ({ selections, handleClick }) => {
   const [value, setValue] = useState(new Date());
   const [formPageView, setFormPageView] = useState(false);
 
-  const myDates = ['Mon Mar 14 2022', 'Tue Mar 15 2022', 'Wed Mar 16 2022'];
+  const myDates = ['Wed Mar 16 2022'];
 
   const disableDates = (date) => {
     return !myDates
@@ -34,6 +37,20 @@ const Calendar = ({ selections, handleClick }) => {
     setFormPageView(!formPageView);
   };
 
+  const NextButton = styled(Button)({
+    color: '#43e4db',
+  });
+
+  const CustomFooterStatusComponent = () => {
+    return (
+      <Box sx={{ padding: '100px', display: 'flex' }}>
+        <NextButton variant="contained" onClick={handleClick}>
+          Next
+        </NextButton>
+      </Box>
+    );
+  };
+
   return (
     <>
     <MainContainer>
@@ -49,6 +66,7 @@ const Calendar = ({ selections, handleClick }) => {
             {/* <MainContainer> */}
             <button onClick={handleClick}>Go back</button>
             <StaticDatePicker
+              disableHighlightToday={true}
               orientation="landscape"
               openTo="day"
               value={value}
@@ -58,13 +76,22 @@ const Calendar = ({ selections, handleClick }) => {
                 setValue(newValue);
               }}
               renderInput={(params) => <TextField {...params} />}
+              sx={{
+                '& .PrivateDatePickerToolbar-penIcon': {display: 'none'},
+              }}
+              components={{
+                Footer: CustomFooterStatusComponent,
+              }}
+              disableHighlightToday={true}
             />
             {/* </MainContainer> */}
           </LocalizationProvider>
-          <button onClick={handleForm}>Next</button>
-          <div>{serviceName}</div>
+          {/* <button onClick={handleForm}>Next</button>
+          <div>{serviceName}</div> */}
         </>
       )}
+      <button onClick={handleForm}>Next</button>
+          <div>{serviceName}</div>
       </MainContainer>
     </>
   );
