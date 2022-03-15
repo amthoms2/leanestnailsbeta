@@ -59,6 +59,7 @@ export const MobileIcon = styled.div`
 //I could not see the responsive bar until I added the white color
 
 export const NavMenu = styled.ul`
+  visibility: ${({ displayMenu }) => (displayMenu ? 'visible' : 'hidden')};
   display: flex;
   align-items: center;
   list-style: none;
@@ -107,6 +108,7 @@ export const NavScroll = styled(LinkScroll)`
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
+  visibility: ${({ displayMenu }) => (displayMenu ? 'visible' : 'hidden')};
 
   @media screen and (max-width: 768px) {
     display: none;

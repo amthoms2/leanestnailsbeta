@@ -6,21 +6,7 @@ import { services } from '../../data';
 import { MainContainer, DataGridWrapper } from './bookingElements';
 import Calender from './Calendar';
 import { styled } from '@mui/styles';
-import { Logo } from "../Navbar/NavbarElements"
-
-
-// export const Logo = styled(LinkRouter)`
-//   color: #fff;
-//   justify-self: flex-start;
-//   cursor: pointer;
-//   font-size: 1.5rem;
-//   display: flex;
-//   align-items: center;
-//   margin-left: 24px;
-//   font-weight: bold;
-//   text-decoration: none;
-// `;
-
+import Navbar from '../Navbar';
 
 const Book = () => {
   const [selectionModel, setSelectionModel] = useState([]);
@@ -59,10 +45,9 @@ const Book = () => {
 
   return (
     <>
-
+    <Navbar displayNavMenu={false}/>
       {bookingPageView ? (
         <MainContainer>
-              <Logo  to="/">Logo</Logo>
           <DataGridWrapper>
             <DataGrid
               sx={{
@@ -90,7 +75,7 @@ const Book = () => {
               }}
             />
           </DataGridWrapper>
-        // </MainContainer>
+         </MainContainer>
 
       ) : (
         <Calender selections={selectionModel} handleClick={handleClick} />

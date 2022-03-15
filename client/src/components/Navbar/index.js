@@ -14,7 +14,7 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 
-const Navbar = ({ toggleBar}) => {
+const Navbar = ({ toggleBar, displayNavMenu }) => {
   const [scroll, setScroll] = useState(false);
 
   const scrollChange = () => {
@@ -39,7 +39,7 @@ const Navbar = ({ toggleBar}) => {
               <FaBars />
             </MobileIcon>
 
-            <NavMenu>
+            <NavMenu displayMenu={displayNavMenu}>
               <NavItem>
                 <NavScroll
                   to="about"
@@ -84,7 +84,7 @@ const Navbar = ({ toggleBar}) => {
               </NavItem>
             </NavMenu>
 
-            <NavBtn>
+            <NavBtn displayMenu={displayNavMenu}>
               <NavBtnLink to="/signin"> Sign Out</NavBtnLink>
             </NavBtn>
           </NavContainer>

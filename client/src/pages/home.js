@@ -9,15 +9,21 @@ import Footer from '../components/Footer'
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [displayMenu, setDisplayMenu] = useState(true)
 
   const toggleBar = () => {
     setIsOpen(!isOpen)
   }
 
+  const displayNavMenu = () => {
+    setDisplayMenu(!displayMenu)
+  }
+
+
   return (
     <>
     <TopBar isOpen={isOpen} toggleBar={toggleBar} />
-    <Navbar toggleBar={toggleBar} />
+    <Navbar toggleBar={toggleBar} displayNavMenu={displayNavMenu}/>
     <Hero />
     <SectionInfo {...aboutObj}/>
     <NailServices />

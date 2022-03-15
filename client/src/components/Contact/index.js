@@ -36,8 +36,6 @@ const Contact = () => {
       const res = await axios.post("http://localhost:8080/api/contact", inputs);
       console.log("res", res.data);
       setStatus("Submit");
-      // let result = await res.json();
-      // alert(result.status);
     } catch (err) {
       console.log(err);
     }
