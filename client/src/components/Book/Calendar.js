@@ -48,6 +48,7 @@ const Calendar = ({ selections, handleClick }) => {
   return (
     <>
       <MainContainer>
+      <NextButton onClick={handleClick}>Go back</NextButton>
         {formPageView ? (
           <BookingForm
             handleClick={handleClick}
@@ -56,9 +57,8 @@ const Calendar = ({ selections, handleClick }) => {
           />
         ) : (
           <>
-            <NextButton onClick={handleClick}>Go back</NextButton>
+          {/* <MainContainer> */}
             <LocalizationProvider dateAdapter={AdapterDateFns}>
-              {/* <MainContainer> */}
               {/* <button onClick={handleClick}>Go back</button> */}
               <StaticDatePicker
                 shouldDisableDate={disableDates}
@@ -84,6 +84,7 @@ const Calendar = ({ selections, handleClick }) => {
             {/* <button onClick={handleForm}>Next</button>
           <div>{serviceName}</div> */}
             <NextButton onClick={handleForm}>Next</NextButton>
+            {/* </MainContainer> */}
           </>
         )}
         <ServiceNames>Services: {serviceName + ' '}</ServiceNames>

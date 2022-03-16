@@ -2,10 +2,11 @@ import { useState } from 'react'
 import Form from '../Form'
 import config from "./config"
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/styles';
 
 const BookingForm = ({handleClick, date, servicesList}) => {
   const [status, setStatus] = useState('');
-  console.log('date', date)
 
   const handleSubmit = async (form) => {
     setStatus('loading')
@@ -22,9 +23,13 @@ const BookingForm = ({handleClick, date, servicesList}) => {
     }, 3000)
   }
 
+  const NextButton = styled(Button)({
+    color: '#43e4db',
+  });
+
   return (
     <>
-      <button onClick={handleClick}>Go back</button>
+      {/* <NextButton onClick={handleClick}>Go back</NextButton> */}
       <Form form={config} onSubmit={handleSubmit} status={status}/>
     </>
   )

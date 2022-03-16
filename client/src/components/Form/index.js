@@ -1,6 +1,6 @@
 import { useState, useEffect, memo, useCallback, useRef } from 'react';
 import {
-  // FormContainer,
+  FormContainer,
   MainContainer,
   Forms,
   Input,
@@ -98,7 +98,7 @@ const Form = ({ form, onSubmit, status }) => {
 
   return (
     <>
-      {/* <FormContainer> */}
+      <FormContainer>
       <MainContainer>
       <Forms onSubmit={handleSubmit}>
         {form.fields.map((field) => {
@@ -125,7 +125,7 @@ const Form = ({ form, onSubmit, status }) => {
         <Message status={status} text={form.config.messages[status]} />
       </Forms>
       </MainContainer>
-      {/* </FormContainer> */}
+      </FormContainer>
     </>
   );
 };
