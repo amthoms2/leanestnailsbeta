@@ -4,10 +4,10 @@ import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
-import { MainContainer} from './bookingElements';
+import { MainContainer, ServiceNames } from './bookingElements';
 import { services } from '../../data';
 import BookingForm from './BookingForm';
-import Box from '@mui/material/Box';
+// import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/styles';
 
@@ -30,7 +30,7 @@ const Calendar = ({ selections, handleClick }) => {
   });
 
   const serviceName = selectedServices.map((service) => {
-    return service.name;
+    return ' ' + service.name;
   });
 
   const handleForm = () => {
@@ -41,57 +41,52 @@ const Calendar = ({ selections, handleClick }) => {
     color: '#43e4db',
   });
 
-  const CustomFooterStatusComponent = () => {
-    return (
-      <Box sx={{ padding: '100px', display: 'flex' }}>
-        <NextButton variant="contained" onClick={handleClick}>
-          Next
-        </NextButton>
-      </Box>
-    );
-  };
+  // const ServiceNames = styled('div')({
+  //   color: '#43e4db',
+  // });
 
   return (
     <>
-    <MainContainer>
-      {formPageView ? (
-        <BookingForm
-          handleClick={handleClick}
-          date={value}
-          servicesList={serviceName}
-        />
-      ) : (
-        <>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            {/* <MainContainer> */}
-            <button onClick={handleClick}>Go back</button>
-            <StaticDatePicker
-              disableHighlightToday={true}
-              orientation="landscape"
-              openTo="day"
-              value={value}
-              shouldDisableDate={disableDates}
-              disablePast
-              onChange={(newValue) => {
-                setValue(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-              sx={{
-                '& .PrivateDatePickerToolbar-penIcon': {display: 'none'},
-              }}
-              components={{
-                Footer: CustomFooterStatusComponent,
-              }}
-              disableHighlightToday={true}
-            />
-            {/* </MainContainer> */}
-          </LocalizationProvider>
-          {/* <button onClick={handleForm}>Next</button>
+      <MainContainer>
+        {formPageView ? (
+          <BookingForm
+            handleClick={handleClick}
+            date={value}
+            servicesList={serviceName}
+          />
+        ) : (
+          <>
+            <NextButton onClick={handleClick}>Go back</NextButton>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              {/* <MainContainer> */}
+              {/* <button onClick={handleClick}>Go back</button> */}
+              <StaticDatePicker
+                shouldDisableDate={disableDates}
+                disableHighlightToday={true}
+                orientation="landscape"
+                openTo="day"
+                value={value}
+                disablePast
+                onChange={(newValue) => {
+                  setValue(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+                sx={{
+                  '& .PrivateDatePickerToolbar-penIcon': { display: 'none' },
+                }}
+                // components={{
+                //   Footer: CustomFooterStatusComponent,
+                // }}
+              />
+              {/* </MainContainer> */}
+            </LocalizationProvider>
+
+            {/* <button onClick={handleForm}>Next</button>
           <div>{serviceName}</div> */}
-        </>
-      )}
-      <button onClick={handleForm}>Next</button>
-          <div>{serviceName}</div>
+            <NextButton onClick={handleForm}>Next</NextButton>
+          </>
+        )}
+        <ServiceNames>Services: {serviceName + ' '}</ServiceNames>
       </MainContainer>
     </>
   );
