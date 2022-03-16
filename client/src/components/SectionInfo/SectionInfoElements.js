@@ -100,3 +100,4 @@ export const Img = styled.img`
   padding-right: 0;
   border-radius: 10%;
 `;
+//[l]
