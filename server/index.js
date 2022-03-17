@@ -28,7 +28,7 @@ mongoose
   })
 
   app.get('*', function(_, response) {
-    response.sendFile(path.resolve(__dirname, '../client/public', 'index.html'));
+    response.sendFile(path.resolve(__dirname, '../client', 'index.html'));
   });
 
   app.listen(process.env.PORT || port, () => {
