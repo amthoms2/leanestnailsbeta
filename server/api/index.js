@@ -18,7 +18,7 @@ mongoose
   app.use(cors())
   app.use(express.urlencoded({ extended: true }))
   app.use(express.json()) // format of sending data via key: value pairs
-  app.use(express.static(path.join(__dirname, '/public')))
+  app.use(express.static(path.join(__dirname, '../../client/public')))
   //use this root folder full of static files every single req and res!
 
   app.use('/api/booking', bookingRoute)
