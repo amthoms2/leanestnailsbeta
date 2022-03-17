@@ -20,6 +20,9 @@ mongoose
   app.use(express.json()) // format of sending data via key: value pairs
   app.use(express.static(path.join(__dirname, '../../client/public')))
   //use this root folder full of static files every single req and res!
+  app.get('*', function(_, response) {
+    response.sendFile(path.resolve(__dirname, '../../client/public', 'index.html'));
+  });
 
   app.use('/api/booking', bookingRoute)
 
