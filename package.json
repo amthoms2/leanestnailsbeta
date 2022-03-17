@@ -7,10 +7,10 @@
   },
   "scripts": {
     "start": "node server",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client/ && npm install && npm run build"
   },
   "cacheDirectories": [
-    "server/api/node_modules",
+    "server/node_modules",
     "react-ui/node_modules"
   ],
   "repository": {
