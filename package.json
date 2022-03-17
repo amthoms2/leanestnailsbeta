@@ -3,18 +3,11 @@
   "version": "0.1.0",
   "description": "",
   "engines": {
-    "node": "10.x"
+    "node": "16.x"
   },
   "scripts": {
     "start": "node server/api",
     "build": "cd client/ && npm install && npm build"
-  },
-  "cacheDirectories": [
-    "node_modules",
-    "client/node_modules"
-  ],
-  "dependencies": {
-    "express": "^4.16.4"
   },
   "repository": {
     "type": "git",
@@ -26,6 +19,5 @@
     "create-react-app",
     "react"
   ],
-  "license": "MIT",
-  "devDependencies": {}
+  "license": "MIT"
 }
