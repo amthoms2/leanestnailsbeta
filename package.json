@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node server/api",
-    "build": "cd client/ && npm install && npm build"
+    "build": "cd client/ && npm install && npm run build"
   },
   "repository": {
     "type": "git",
