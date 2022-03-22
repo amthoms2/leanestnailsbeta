@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "engines": {
-    "node": "16.x"
+    "node": "v17.7.1'"
   },
   "scripts": {
     "start": "node server/index.js",
@@ -23,5 +23,8 @@
     "create-react-app",
     "react"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node": "^17.7.1"
+  }
 }
