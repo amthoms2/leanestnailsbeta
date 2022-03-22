@@ -18,7 +18,7 @@ mongoose
   app.use(cors())
   app.use(express.urlencoded({ extended: true }))
   app.use(express.json()) // format of sending data via key: value pairs
-  app.use(express.static(path.join(__dirname, '../client', build)))
+  app.use(express.static(path.join(__dirname, '/client/build')))
   //use this root folder full of static files every single req and res!
 
   app.use('/api/booking', bookingRoute)
@@ -28,7 +28,7 @@ mongoose
   })
 
   app.get('*', function(_, response) {
-    response.sendFile(path.resolve(__dirname, '../client', 'build', "index.html"));
+    response.sendFile(path.resolve(__dirname, 'client', 'build', "index.html"));
   });
 
   app.listen(process.env.PORT || port, () => {
