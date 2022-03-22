@@ -11,7 +11,7 @@
   },
   "cacheDirectories": [
     "server/node_modules",
-    "react-ui/node_modules"
+    "client/node_modules"
   ],
   "repository": {
     "type": "git",
